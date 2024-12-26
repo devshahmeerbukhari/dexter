@@ -25,7 +25,7 @@ function HomePage() {
               Sol transforms your concepts into cutting-edge technology that
               drives growth and innovations.
             </p>
-            <Link href="/contact" className="px-4 py-2 mt-10 bg-blue-500 bg-opacity-50 rounded-lg shadow-2xl hover:bg-slate-200 hover:bg-opacity-50 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+            <Link href="/components/contact" className="px-4 py-2 mt-10 bg-blue-500 bg-opacity-50 rounded-lg shadow-2xl hover:bg-slate-200 hover:bg-opacity-50 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
               Schedule strategy call
             </Link>
           </div>
