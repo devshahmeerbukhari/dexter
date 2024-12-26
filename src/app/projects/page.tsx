@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import ProjectCard from "../projectsCard/ProjectCard";
+import ProjectCard from "../projectsCard/page";
 import { client } from "@/sanity/lib/client";
 import { Project } from "../../../../types/types";
 
