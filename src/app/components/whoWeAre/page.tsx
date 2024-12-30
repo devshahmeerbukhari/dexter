@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image"; // Import the Image component from Next.js
+import Link from "next/link";
 
 const WhoWeAre = () => {
   return (
@@ -69,12 +70,12 @@ const WhoWeAre = () => {
           </div>
 
           {/* Button */}
-          <a
+          <Link
             className="bg-blue-500 text-white px-6 py-2 rounded shadow hover:bg-blue-600"
             href="/components/about"
           >
             About Us →
-          </a>
+          </Link>
         </div>
       </div>
       {/* Define the animation in a style tag */}

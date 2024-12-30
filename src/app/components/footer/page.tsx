@@ -28,30 +28,30 @@ function Footer() {
             with precision and passion.
           </p>
           <div className="flex space-x-3 mt-4">
-            <a
+            <Link
               href="#"
               className="w-8 h-8 flex items-center justify-center border border-gray-500 rounded hover:bg-gray-700"
             >
               <FacebookIcon />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="w-8 h-8 flex items-center justify-center border border-gray-500 rounded hover:bg-gray-700"
             >
               <XIcon />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="w-8 h-8 flex items-center justify-center border border-gray-500 rounded hover:bg-gray-700"
             >
               <LinkedInIcon />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="w-8 h-8 flex items-center justify-center border border-gray-500 rounded hover:bg-gray-700"
             >
               <YouTubeIcon />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -82,39 +82,39 @@ function Footer() {
           <h3 className="text-xl font-bold mb-4">Our Services</h3>
           <ul className="space-y-2">
             <li>
-              <a href="/components/servicesDetails/WebDevelopment" className="hover:underline">
+              <Link href="/components/servicesDetails/WebDevelopment" className="hover:underline">
                 &raquo; Web Development
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/components/servicesDetails/AppDevelopment" className="hover:underline">
+              <Link href="/components/servicesDetails/AppDevelopment" className="hover:underline">
                 &raquo; App Development
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/components/servicesDetails/GenerativeAI" className="hover:underline">
+              <Link href="/components/servicesDetails/GenerativeAI" className="hover:underline">
                 &raquo; Generative AI
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/components/servicesDetails/GameDevelopment" className="hover:underline">
+              <Link href="/components/servicesDetails/GameDevelopment" className="hover:underline">
                 &raquo; Game Development
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/components/servicesDetails/BlockchainDevelopment" className="hover:underline">
+              <Link href="/components/servicesDetails/BlockchainDevelopment" className="hover:underline">
                 &raquo; Blockchain Development
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/components/servicesDetails/DatabaseSecurity" className="hover:underline">
+              <Link href="/components/servicesDetails/DatabaseSecurity" className="hover:underline">
                 &raquo; Database Security
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/components/servicesDetails/UIUXDesign" className="hover:underline">
+              <Link href="/components/servicesDetails/UIUXDesign" className="hover:underline">
                 &raquo; UI/UX Design
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
