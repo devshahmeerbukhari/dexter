@@ -6,7 +6,6 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Service } from "../../../../../types/types";
 import { ImageSource } from "../../../../../types/types";
 import Image from "next/image";
-import Link from "next/link";
 import ServicesSideBar from "../../servicesSideBar/page";
 
 // Create a builder instance for the Sanity client
