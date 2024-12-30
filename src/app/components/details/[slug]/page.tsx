@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { ImageSource } from "../../../../../types/types";
 import Image from "next/image";
+import ServicesSideBar from "../../servicesSideBar/page";
 // Importing types
 import { Project } from "../../../../../types/types";
 
@@ -100,29 +101,7 @@ const Details = () => {
       </div>
 
       {/* Sidebar */}
-      <aside className="w-full lg:w-1/4 bg-gradient-to-br from-blue-400 to-blue-600 text-white p-6 rounded-lg shadow-lg m-4 lg:m-4">
-        <h2 className="text-lg lg:text-xl font-bold mb-6">Services</h2>
-        <ul className="space-y-4">
-          {[
-            "Web Development",
-            "App Development",
-            "Game Development",
-            "BlockChain Development",
-            "Generative AI",
-            "UI/UX Design",
-            "Database Security",
-          ].map((service, index) => (
-            <li
-              key={index}
-              className="cursor-pointer bg-blue-500 p-3 rounded-lg hover:bg-blue-400 transition text-sm lg:text-base"
-            >
-              <span className="flex items-center justify-between">
-                {service} <span>&raquo;</span>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <ServicesSideBar/>
     </div>
   );
 };
