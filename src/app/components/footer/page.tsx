@@ -60,17 +60,17 @@ function Footer() {
           <h3 className="text-xl font-bold mb-4">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link href="/components/about" className="hover:underline">
                 &raquo; About Us
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:underline">
+              <Link href="/components/services" className="hover:underline">
                 &raquo; Our Services
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline">
+              <Link href="/components/contact" className="hover:underline">
                 &raquo; Contact Us
               </Link>
             </li>
@@ -82,37 +82,37 @@ function Footer() {
           <h3 className="text-xl font-bold mb-4">Our Services</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/WebDevelopment" className="hover:underline">
                 &raquo; Web Development
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/AppDevelopment" className="hover:underline">
                 &raquo; App Development
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/GenerativeAI" className="hover:underline">
                 &raquo; Generative AI
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/GameDevelopment" className="hover:underline">
                 &raquo; Game Development
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/BlockchainDevelopment" className="hover:underline">
                 &raquo; Blockchain Development
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/DatabaseSecurity" className="hover:underline">
                 &raquo; Database Security
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/components/servicesDetails/UIUXDesign" className="hover:underline">
                 &raquo; UI/UX Design
               </a>
             </li>

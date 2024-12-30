@@ -71,7 +71,7 @@ const WhoWeAre = () => {
           {/* Button */}
           <a
             className="bg-blue-500 text-white px-6 py-2 rounded shadow hover:bg-blue-600"
-            href="/about"
+            href="/components/about"
           >
             About Us →
           </a>

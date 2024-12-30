@@ -6,6 +6,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Service } from "../../../../../types/types";
 import { ImageSource } from "../../../../../types/types";
 import Image from "next/image";
+import Link from "next/link";
 
 // Create a builder instance for the Sanity client
 const builder = imageUrlBuilder(client);
@@ -102,21 +103,27 @@ const ServicesDetails = () => {
         <h2 className="text-lg lg:text-xl font-bold mb-6">Services</h2>
         <ul className="space-y-4">
           {[
-            "Web Development",
-            "App Development",
-            "Game Development",
-            "BlockChain Development",
-            "Generative AI",
-            "UI/UX Design",
-            "Database Security",
+            { name: "Web Development", path: "/components/servicesDetails/WebDevelopment" },
+            { name: "App Development", path: "/components/servicesDetails/AppDevelopment" },
+            { name: "Game Development", path: "/components/servicesDetails/GameDevelopment" },
+            {
+              name: "BlockChain Development",
+              path: "/components/servicesDetails/BlockchainDevelopment",
+            },
+            { name: "Generative AI", path: "/components/servicesDetails/GenerativeAI" },
+            { name: "UI/UX Design", path: "/components/servicesDetails/UIUXDesign" },
+            { name: "Database Security", path: "/components/servicesDetails/DatabaseSecurity" },
           ].map((service, index) => (
             <li
               key={index}
               className="cursor-pointer bg-blue-500 p-3 rounded-lg hover:bg-blue-400 transition text-sm lg:text-base"
             >
-              <span className="flex items-center justify-between">
-                {service} <span>&raquo;</span>
-              </span>
+              <Link
+                href={service.path}
+                className="flex items-center justify-between"
+              >
+                {service.name} <span>&raquo;</span>
+              </Link>
             </li>
           ))}
         </ul>
