@@ -38,7 +38,7 @@ function ProjectPage() {
     };
 
     fetchData();
-  },);
+  }, []);
 
   console.log("PP: ", projects);
 

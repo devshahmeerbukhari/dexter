@@ -52,7 +52,7 @@ const Details = () => {
     };
 
     fetchData();
-  }, );
+  }, []);
 
   // Extract slug from the pathname or search params
   useEffect(() => {

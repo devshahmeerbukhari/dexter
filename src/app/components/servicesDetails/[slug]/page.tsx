@@ -51,7 +51,7 @@ const ServicesDetails = () => {
     };
 
     fetchData();
-  }, );
+  }, []);
 
   // Extract slug from the pathname or search params
   useEffect(() => {
