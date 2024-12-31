@@ -6,19 +6,39 @@ import { Project } from "../../../../types/types";
 
 function ProjectPage() {
   const [projects, setProjects] = useState<Project[]>([]); // Initialize with an empty array
+  const CACHE_KEY = "projectsCache";
+  const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await client.fetch(`*[_type == "projectSchema"]`);
-        setProjects(data); // Set the projects in context
+        // Retrieve cached data
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        const cache = cachedData ? JSON.parse(cachedData) : null;
+
+        if (cache && Date.now() - cache.timestamp < CACHE_DURATION) {
+          // Use cached data if it's still valid
+          setProjects(cache.data);
+          console.log("Using cached data");
+        } else {
+          // Fetch new data from the server
+          const data = await client.fetch(`*[_type == "projectSchema"]`);
+          setProjects(data);
+
+          // Save fetched data to cache with a timestamp
+          localStorage.setItem(
+            CACHE_KEY,
+            JSON.stringify({ data, timestamp: Date.now() })
+          );
+          console.log("Fetched new data and updated cache");
+        }
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  },);
 
   console.log("PP: ", projects);
 

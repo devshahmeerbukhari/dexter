@@ -17,21 +17,42 @@ const Details = () => {
   const [projects, setProjects] = useState<Project[]>([]); // Type for multiple projects
   const [slug, setSlug] = useState<string | null>(null);
 
+  const CACHE_KEY = "projectsDetailsCache";
+  const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+
   const pathname = usePathname(); // Get the current pathname (which includes the slug)
 
-  // Fetching the projects and setting them in state
+  // Fetching the projects and caching them
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await client.fetch(`*[_type == "projectSchema"]`);
-        setProjects(data); // Set the projects in state
+        // Retrieve cached data
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        const cache = cachedData ? JSON.parse(cachedData) : null;
+
+        if (cache && Date.now() - cache.timestamp < CACHE_DURATION) {
+          // Use cached data if it's still valid
+          setProjects(cache.data);
+          console.log("Using cached data");
+        } else {
+          // Fetch new data from the server
+          const data = await client.fetch(`*[_type == "projectSchema"]`);
+          setProjects(data);
+
+          // Save fetched data to cache with a timestamp
+          localStorage.setItem(
+            CACHE_KEY,
+            JSON.stringify({ data, timestamp: Date.now() })
+          );
+          console.log("Fetched new data and updated cache");
+        }
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, );
 
   // Extract slug from the pathname or search params
   useEffect(() => {
@@ -40,7 +61,6 @@ const Details = () => {
   }, [pathname]);
 
   // Update the project state when 'slug' or 'projects' change
-  console.log("POPOP: ", projects);
   useEffect(() => {
     if (slug && projects.length > 0) {
       const dataFind = projects.find(
@@ -101,7 +121,7 @@ const Details = () => {
       </div>
 
       {/* Sidebar */}
-      <ServicesSideBar/>
+      <ServicesSideBar />
     </div>
   );
 };
