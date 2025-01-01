@@ -4,7 +4,7 @@ import ServicesCard from "../sercivesCard/page";
 import { client } from "@/sanity/lib/client";
 import { Service } from "../../../../types/types";
 
-function ProjectPage() {
+function ServicesPage() {
   const [projects, setProjects] = useState<Service[]>([]); // Initialize with an empty array
   const CACHE_KEY = "servicesCache";
   const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
@@ -65,4 +65,4 @@ function ProjectPage() {
   );
 }
 
-export default ProjectPage;
+export default ServicesPage;

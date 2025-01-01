@@ -44,7 +44,7 @@ function ProjectPage() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 min-h-[70vh] sm:grid-cols-2 md:grid-cols-3 gap-8 mx-4 lg:mx-20 m-28">
+      <div className="grid min-h-[70vh] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mx-4 lg:mx-20 m-28">
         {projects.length > 0 ? (
           projects.map((project: Project, index: number) => (
             <ProjectCard

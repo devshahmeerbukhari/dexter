@@ -8,7 +8,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[#0a0a23] to-[#3b5bff] text-white py-10">
+    <footer className="bg-gradient-to-r from-[#0a0a23] to-[#2a40ad] text-white py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-5 md:px-10">
         {/* Logo and Description */}
         <div>

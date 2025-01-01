@@ -60,7 +60,7 @@ function Navbar() {
 
       {/* Mobile Links */}
       {isMenuOpen && (
-        <div className="sm:hidden flex flex-col items-center space-y-4 pb-4 font-bold bg-slate-200">
+        <div className="sm:hidden flex flex-col items-center space-y-4 pb-4 font-bold bg-blue-200">
           <Link
             href="/"
             className="hover:text-blue-600"
