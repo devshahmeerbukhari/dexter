@@ -23,7 +23,8 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
     "sanity": "3",
-    "styled-components": "6"
+    "styled-components": "6",
+    "tailwind-scrollbar-hide": "^2.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

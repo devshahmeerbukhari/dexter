@@ -12,7 +12,9 @@ const ScheduleCall = () => {
           variant="outlined"
           label="Your Name"
           className="text-white rounded-lg w-52"
-          InputLabelProps={{ style: { color: 'white' } }}
+          InputLabelProps={{
+            style: { color: 'white', fontSize: '14px' }, // Smaller placeholder font size
+          }}
           InputProps={{
             style: { borderRadius: '25px', color: 'white', borderColor: 'white' },
             classes: {
@@ -24,7 +26,9 @@ const ScheduleCall = () => {
           variant="outlined"
           label="Your Phone"
           className="text-white rounded-lg w-52"
-          InputLabelProps={{ style: { color: 'white' } }}
+          InputLabelProps={{
+            style: { color: 'white', fontSize: '14px' }, // Smaller placeholder font size
+          }}
           InputProps={{
             style: { borderRadius: '25px', color: 'white', borderColor: 'white' },
             classes: {
@@ -36,7 +40,9 @@ const ScheduleCall = () => {
           variant="outlined"
           label="Message"
           className="text-white rounded-lg w-52"
-          InputLabelProps={{ style: { color: 'white' } }}
+          InputLabelProps={{
+            style: { color: 'white', fontSize: '14px' }, // Smaller placeholder font size
+          }}
           InputProps={{
             style: { borderRadius: '25px', color: 'white', borderColor: 'white' },
             classes: {
