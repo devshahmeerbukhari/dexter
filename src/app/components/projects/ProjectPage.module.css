@@ -1,0 +1,48 @@
+/* ProjectPage.module.css */
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0px 20px;
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.carouselItem {
+  flex: 0 0 300px; /* Adjust width based on design */
+  margin-right: 1rem;
+}
+
+.arrowLeft,
+.arrowRight {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 0.5rem 1rem;
+}
+
+.arrowLeft {
+  left: 10px;
+}
+
+.arrowRight {
+  right: 10px;
+}

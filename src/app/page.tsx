@@ -91,7 +91,7 @@ function HomePage() {
         </div>
       </div>
       <WhoWeAre />
-      <div className="bg-gray-100 rounded-lg shadow-md">
+      <div className="bg-gray-100 rounded-lg pb-20 shadow-md">
         <div className="flex flex-col items-center justify-center pt-10">
           <h1 className="text-3xl font-bold mb-6">Exclusive Services</h1>
           <div className="w-3/4 text-center">
@@ -100,7 +100,7 @@ function HomePage() {
               drive your success.
             </p>
           </div>
-          <ServicesPage />
+          <ServicesPage viewType="Home"/>
         </div>
       </div>
       <WhyUs />
@@ -113,7 +113,9 @@ function HomePage() {
             </p>
           </div>
         </div>
-        <ProjectPage />
+        <div>
+        <ProjectPage viewType="Home"/>
+        </div>
       </div>
     </>
   );
