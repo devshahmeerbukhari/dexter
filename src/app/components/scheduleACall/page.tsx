@@ -1,7 +1,6 @@
 // Import necessary modules
-import React from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import React from "react";
+import TextField from "@mui/material/TextField";
 
 const ScheduleCall = () => {
   return (
@@ -13,12 +12,16 @@ const ScheduleCall = () => {
           label="Your Name"
           className="text-white rounded-lg w-52"
           InputLabelProps={{
-            style: { color: 'white', fontSize: '14px' }, // Smaller placeholder font size
+            style: { color: "white", fontSize: "14px" }, // Smaller placeholder font size
           }}
           InputProps={{
-            style: { borderRadius: '25px', color: 'white', borderColor: 'white' },
+            style: {
+              borderRadius: "25px",
+              color: "white",
+              borderColor: "white",
+            },
             classes: {
-              notchedOutline: 'border-white',
+              notchedOutline: "border-white",
             },
           }}
         />
@@ -27,12 +30,16 @@ const ScheduleCall = () => {
           label="Your Phone"
           className="text-white rounded-lg w-52"
           InputLabelProps={{
-            style: { color: 'white', fontSize: '14px' }, // Smaller placeholder font size
+            style: { color: "white", fontSize: "14px" }, // Smaller placeholder font size
           }}
           InputProps={{
-            style: { borderRadius: '25px', color: 'white', borderColor: 'white' },
+            style: {
+              borderRadius: "25px",
+              color: "white",
+              borderColor: "white",
+            },
             classes: {
-              notchedOutline: 'border-white',
+              notchedOutline: "border-white",
             },
           }}
         />
@@ -41,22 +48,36 @@ const ScheduleCall = () => {
           label="Message"
           className="text-white rounded-lg w-52"
           InputLabelProps={{
-            style: { color: 'white', fontSize: '14px' }, // Smaller placeholder font size
+            style: { color: "white", fontSize: "14px" }, // Smaller placeholder font size
           }}
           InputProps={{
-            style: { borderRadius: '25px', color: 'white', borderColor: 'white' },
+            style: {
+              borderRadius: "25px",
+              color: "white",
+              borderColor: "white",
+            },
             classes: {
-              notchedOutline: 'border-white',
+              notchedOutline: "border-white",
             },
           }}
         />
-        <Button
-          variant="contained"
+        <button
           className="bg-white text-blue-500 font-bold py-2 px-6 rounded-full"
-          style={{ textTransform: 'none' }}
+          style={{
+            textTransform: "none",
+            transition: "all 0.2s ease-in-out",
+          }}
+          onMouseDown={(e) => {
+            e.currentTarget.style.backgroundColor = "#e0e0e0"; // Light gray background on click
+            e.currentTarget.style.transform = "scale(0.95)"; // Slight shrink effect
+          }}
+          onMouseUp={(e) => {
+            e.currentTarget.style.backgroundColor = "#ffffff"; // Restore original background color
+            e.currentTarget.style.transform = "scale(1)"; // Restore original size
+          }}
         >
           SUBMIT REQUEST
-        </Button>
+        </button>
       </form>
     </div>
   );
