@@ -6,7 +6,6 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Service } from "../../../../../types/types";
 import { ImageSource } from "../../../../../types/types";
 import Image from "next/image";
-import ServicesSideBar from "../../servicesSideBar/page";
 
 // Create a builder instance for the Sanity client
 const builder = imageUrlBuilder(client);
@@ -73,53 +72,40 @@ const ServicesDetails = () => {
     builder.image(source).width(800).url();
 
   return (
-    <div className="min-h-screen m-5 my-20 flex flex-col lg:flex-row">
-      {/* Main Content */}
-      <div className="flex-1 p-4 lg:p-10">
-        <div className="bg-white min-h-[70vh] shadow-md rounded-lg p-4 lg:p-6">
-          {project ? (
-            <div>
-              <h2 className="text-lg lg:text-2xl font-semibold text-gray-700 mb-4">
-                {project.name}
-              </h2>
-              {project.image?.asset ? (
-                <div className="relative overflow-hidden rounded-lg mb-6 w-full sm:w-[400px] sm:h-[400px] lg:w-[40%] lg:h-auto">
-                  <Image
-                    src={urlFor(project.image.asset)} // Passing the asset object
-                    alt={project?.name || "Service Image"}
-                    width={800} // Set the width according to your design
-                    height={600} // Set the height according to your design
-                    className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                    priority // This prioritizes the image loading
-                  />
-                </div>
-              ) : (
-                <p className="text-red-500">Image not available</p>
-              )}
-
-              <p className="text-gray-600 text-sm lg:text-base mb-6">
-                {project?.description}
-              </p>
-
-              <div className="border-t border-gray-300 pt-6">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-800 mb-2">
-                  Details:
-                </h3>
-                <p className="text-gray-600 text-sm lg:text-base">
-                  {project?.detail}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="text-center text-lg lg:text-xl text-gray-600">
-              Loading...
-            </div>
-          )}
-        </div>
+    <div className="min-h-screen  flex flex-col lg:flex-row gap-20 mx-80 p-6 lg:p-12">
+      {/* Text Content */}
+      <div className="flex-1 flex flex-col justify-center text-left">
+        <h1 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
+          {project?.name || "The cornerstone of a digital enterprise"}
+        </h1>
+        <p className="text-gray-600 text-lg leading-relaxed mb-6">
+          {project?.description ||
+            "Gain a competitive edge in today’s fast-paced world of innovation, and meet business objectives effectively through advanced data platforms. We help businesses tackle issues related to data fragmentation, silos, scalability, and inefficient warehousing."}
+        </p>
+        <p className="text-gray-600 text-lg leading-relaxed">
+          {project?.detail ||
+            "With our data modernization solutions, organizations can unify, mobilize, govern, understand their data, and create a single source of truth."}
+        </p>
       </div>
 
-      {/* Sidebar */}
-      <ServicesSideBar />
+      {/* Image Content */}
+      <div className="flex-1 flex justify-center items-center">
+        {project?.image?.asset ? (
+          <div className="relative w-auto h-auto overflow-hidden rounded-lg shadow-lg">
+            <Image
+              src={urlFor(project.image.asset)}
+              alt={project?.name || "Service Image"}
+              width={600}
+              height={600}
+              className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-110"
+            />
+          </div>
+        ) : (
+          <div className="bg-gray-200 rounded-lg shadow-lg w-full h-96 flex items-center justify-center">
+            <p className="text-gray-500">Image not available</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
