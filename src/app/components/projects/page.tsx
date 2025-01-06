@@ -79,7 +79,7 @@ function ProjectPage({ viewType = "Projects" }: ProjectPageProps) {
         </div>
       ) : (
         // Projects view: Grid layout for displaying projects
-        <div className="max-w-screen-xl mx-auto px-4 my-10 min-h-[100vh]">
+        <div className="max-w-screen-xl mx-auto px-4 mt-28 mb-10 min-h-[100vh]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {projects.length > 0 ? (
               // Render each project as a card in the grid

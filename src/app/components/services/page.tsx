@@ -81,7 +81,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
         </div>
       ) : (
         // Services view: Grid layout for displaying services
-        <div className="max-w-screen-xl mx-auto px-4 my-10 min-h-[100vh]">
+        <div className="max-w-screen-xl mx-auto px-4 mt-28 mb-10 min-h-[100vh]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {services.length > 0 ? (
               // Map through the services and render each one as a card in a grid

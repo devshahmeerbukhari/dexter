@@ -13,7 +13,8 @@ const urlFor = (source: ImageSource) => builder.image(source).width(800).url();
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, image, slug }) => {
   return (
-    <div className="border rounded-lg p-4">
+    /*Made changes here flex flex-col justify-around min-h-[500px]*/
+    <div className="flex flex-col justify-around border min-h-[500px] rounded-lg p-4">
       {/* Project Image */}
       {image?.asset ? (
         <div className="mt-4 w-full h-64 relative">
