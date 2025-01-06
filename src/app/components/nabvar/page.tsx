@@ -6,6 +6,7 @@ import Image from "next/image";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [path, setPath] = useState("/");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const LinkWithHover = ({ href, label }) => (
     <Link
@@ -22,8 +23,13 @@ function Navbar() {
     </Link>
   );
 
+  const handleServicesClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    setPath("/components/services");
+  };
+
   return (
-    <div className="bg-blue-100">
+    <div className="bg-blue-50">
       <div className="flex justify-between items-center px-4 sm:px-10 lg:px-20">
         {/* Logo */}
         <div className="flex items-center">
@@ -49,10 +55,100 @@ function Navbar() {
         <div className="hidden md:flex font-bold items-center space-x-16">
           <LinkWithHover href="/" label="Home" />
           <LinkWithHover href="/components/about" label="About" />
-          <LinkWithHover href="/components/services" label="Services" />
+          <div
+            className="relative"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+          >
+            <button
+              className={`relative hover:text-blue-600 ${
+                path === "/components/services" ? "text-blue-600" : "text-black"
+              }`}
+              onClick={handleServicesClick}
+            >
+              <Link
+                href={`/components/services`}
+                className={`relative group hover:text-blue-600 ${
+                  path === '/components/services' ? "text-blue-600" : "text-black"
+                }`}
+                onClick={() => setPath('/components/services')}
+              >
+                <span className="relative inline-block">
+                  Services
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
+                </span>
+              </Link>
+            </button>
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <div
+                className="absolute top-[90%] left-0 bg-white shadow-lg rounded-lg mt-1 p-2 w-48 z-50"
+                onMouseEnter={() => setIsDropdownOpen(true)} // Keep open when hovering dropdown
+                onMouseLeave={() => setIsDropdownOpen(false)} // Close when leaving dropdown
+              >
+                <Link
+                  href="/components/servicesDetails/AppDevelopment"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  App Development
+                </Link>
+                <Link
+                  href="/components/servicesDetails/GenerativeAI"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Generative AI
+                </Link>
+                <Link
+                  href="/components/servicesDetails/WebDevelopment"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Web Development
+                </Link>
+                <Link
+                  href="/components/servicesDetails/DatabaseSecurity"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Database Security
+                </Link>
+                <Link
+                  href="/components/servicesDetails/BlockchainDevelopment"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Blockchain Development
+                </Link>
+                <Link
+                  href="/components/servicesDetails/UIUXDesign"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  UI/UX Design
+                </Link>
+                <Link
+                  href="/components/servicesDetails/GameDevelopment"
+                  className="block px-4 py-2 hover:bg-blue-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Game Development
+                </Link>
+              </div>
+            )}
+          </div>
           <LinkWithHover href="/components/projects" label="Projects" />
           <LinkWithHover href="/components/contact" label="Contact" />
         </div>
+        {/* <div>
+          <Link
+            href="/components/contact"
+            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:from-purple-600 hover:to-blue-500 hover:shadow-xl transform transition-all duration-300 hover:scale-110 focus:ring focus:ring-purple-300"
+          >
+            Schedule Strategy Call
+          </Link>
+        </div> */}
       </div>
 
       {/* Mobile Links */}

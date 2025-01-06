@@ -72,42 +72,49 @@ const ServicesDetails = () => {
     builder.image(source).width(800).url();
 
   return (
-    <div className="min-h-screen  flex flex-col lg:flex-row gap-20 mx-80 p-6 lg:p-12">
-      {/* Text Content */}
-      <div className="flex-1 flex flex-col justify-center text-left">
-        <h1 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
-          {project?.name || "The cornerstone of a digital enterprise"}
-        </h1>
-        <p className="text-gray-600 text-lg leading-relaxed mb-6">
-          {project?.description ||
-            "Gain a competitive edge in today’s fast-paced world of innovation, and meet business objectives effectively through advanced data platforms. We help businesses tackle issues related to data fragmentation, silos, scalability, and inefficient warehousing."}
-        </p>
-        <p className="text-gray-600 text-lg leading-relaxed">
-          {project?.detail ||
-            "With our data modernization solutions, organizations can unify, mobilize, govern, understand their data, and create a single source of truth."}
-        </p>
-      </div>
-
-      {/* Image Content */}
-      <div className="flex-1 flex justify-center items-center">
-        {project?.image?.asset ? (
-          <div className="relative w-auto h-auto overflow-hidden rounded-lg shadow-lg">
-            <Image
-              src={urlFor(project.image.asset)}
-              alt={project?.name || "Service Image"}
-              width={600}
-              height={600}
-              className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-110"
-            />
+    <div className="p-6 lg:p-12">
+      <div className="container mx-auto bg-white rounded-lg shadow-lg p-6 lg:p-12">
+        {/* Responsive Layout */}
+        <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20">
+          {/* Text Content */}
+          <div className="flex-1 flex flex-col justify-center text-left">
+            <h1 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
+              {project?.name || "The cornerstone of a digital enterprise"}
+            </h1>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              {project?.description ||
+                "Gain a competitive edge in today’s fast-paced world of innovation, and meet business objectives effectively through advanced data platforms. We help businesses tackle issues related to data fragmentation, silos, scalability, and inefficient warehousing."}
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              {project?.detail ||
+                "With our data modernization solutions, organizations can unify, mobilize, govern, understand their data, and create a single source of truth."}
+            </p>
           </div>
-        ) : (
-          <div className="bg-gray-200 rounded-lg shadow-lg w-full h-96 flex items-center justify-center">
-            <p className="text-gray-500">Image not available</p>
+  
+          {/* Image Content */}
+          <div className="flex-1 flex justify-center items-center">
+            {project?.image?.asset ? (
+              <div className="relative w-auto h-auto overflow-hidden rounded-lg shadow-lg">
+                <Image
+                  src={urlFor(project.image.asset)}
+                  alt={project?.name || "Service Image"}
+                  width={600}
+                  height={600}
+                  className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-110"
+                />
+              </div>
+            ) : (
+              <div className="bg-gray-200 rounded-lg shadow-lg w-full h-96 flex items-center justify-center">
+                <p className="text-gray-500">Image not available</p>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
+  
+  
 };
 
 export default ServicesDetails;
