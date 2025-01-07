@@ -72,7 +72,7 @@ const ServicesDetails = () => {
     builder.image(source).width(800).url();
 
   return (
-    <div className="p-6 lg:p-12">
+    <div className="p-6 mt-20 lg:p-12">
       <div className="container mx-auto bg-white rounded-lg shadow-lg p-6 lg:p-12">
         {/* Responsive Layout */}
         <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20">

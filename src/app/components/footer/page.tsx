@@ -14,14 +14,14 @@ function Footer() {
         <div>
           <div className="flex items-center space-x-2">
             <Image
-              src="/assets/images/logo/dexterzsol_logo.png"
+              src="/assets/images/logo/dexterzsol_logow.png"
               alt="Dexterz Sol Logo"
-              width={96} // Adjust width as per your requirements
-              height={96} // Adjust height as per your requirements
+              width={500} // Adjust width as per your requirements
+              height={500} // Adjust height as per your requirements
               className="h-24 w-auto object-contain"
             />
 
-            <h1 className="text-2xl font-bold">Dexterz Sol</h1>
+            {/* <h1 className="text-2xl font-bold">Dexterz Sol</h1> */}
           </div>
           <p className="mt-4 text-gray-400">
             Crafting Code, Building Futures. Empowering your digital journey

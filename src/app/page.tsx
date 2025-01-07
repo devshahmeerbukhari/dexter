@@ -48,7 +48,7 @@ function HomePage() {
       >
         <div className="w-full h-full flex flex-col md:flex-row">
           {/* Left section */}
-          <div className="flex-1 text-white p-6 flex flex-col items-start justify-center md:pl-24">
+          <div className="flex-1 mt-20 text-white p-6 flex flex-col items-start justify-center md:pl-24">
             <p
               className="uppercase font-bold"
               style={{ letterSpacing: "0.5em" }}
