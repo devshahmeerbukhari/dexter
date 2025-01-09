@@ -1,106 +1,195 @@
-'use client'
+"use client";
 import React from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 
-const ScheduleCall = () => {
+const ScheduleACall = () => {
+  const [formValues, setFormValues] = React.useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = React.useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    message: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    setErrors({ ...errors, [name]: false });
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted!");
+
+    const newErrors = {
+      firstName: formValues.firstName === "",
+      lastName: formValues.lastName === "",
+      email:
+        formValues.email === "" ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.email),
+      message: formValues.message === "",
+    };
+
+    setErrors(newErrors);
+
+    const hasErrors = Object.values(newErrors).some((error) => error);
+    if (!hasErrors) {
+      console.log("Form submitted!", formValues);
+    }
   };
 
   return (
-    <div className="bg-blue-500 my-10 p-10 rounded-lg text-center text-white relative">
-      <h2 className="mb-6 text-2xl font-bold">Schedule a Call</h2>
-      <form className="flex flex-wrap gap-4 justify-center" onSubmit={handleSubmit}>
-        <TextField
-          variant="outlined"
-          label="Your Name"
-          InputLabelProps={{
-            style: { color: "white", fontSize: "14px" },
-          }}
+    <Box
+      sx={{
+        padding: "20px",
+        backgroundColor: "#fff",
+        minHeight: "auto",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 10,
+      }}
+    >
+      <Grid
+        container
+        spacing={4}
+        sx={{
+          maxWidth: "1200px",
+        }}
+      >
+        {/* Left Section */}
+        <Grid
+          item
+          xs={12}
+          md={6}
           sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "50px", // Fully rounded border
-              "& fieldset": {
-                borderColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "white",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-          }}
-        />
-        <TextField
-          variant="outlined"
-          label="Your Phone"
-          InputLabelProps={{
-            style: { color: "white", fontSize: "14px" },
-          }}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "50px", // Fully rounded border
-              "& fieldset": {
-                borderColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "white",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-          }}
-        />
-        <TextField
-          variant="outlined"
-          label="Message"
-          InputLabelProps={{
-            style: { color: "white", fontSize: "14px" },
-          }}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "50px", // Fully rounded border
-              "& fieldset": {
-                borderColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "white",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{
-            backgroundColor: "white",
-            color: "#2563eb", // Blue text
-            fontWeight: "bold",
-            padding: "10px 20px",
-            borderRadius: "25px",
-            textTransform: "none",
-            transition: "all 0.2s ease-in-out",
-            "&:hover": {
-              backgroundColor: "#f0f0f0", // Lighter gray on hover
-            },
-            "&:active": {
-              backgroundColor: "#e0e0e0", // Gray on click
-              transform: "scale(0.95)", // Slight shrink effect
-            },
+            textAlign: { xs: "center", md: "left" },
           }}
         >
-          SUBMIT REQUEST
-        </Button>
-      </form>
-    </div>
+          <Typography
+            variant="h3"
+            fontWeight="bold"
+            marginBottom={2}
+          >
+            Get in Touch
+          </Typography>
+          <Typography
+            variant="body1"
+            marginBottom={4}
+            sx={{ color: "#555" }}
+          >
+            Looking to transform your business with innovative IT solutions? We
+            provide a wide range of services, including software development, IT
+            consulting, cloud solutions, and more. Schedule a call with our
+            experts to discuss how we can help bring your ideas to life or
+            optimize your current systems.
+          </Typography>
+        </Grid>
+
+        {/* Right Section */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Card
+            sx={{
+              width: "100%",
+              maxWidth: "500px",
+              boxShadow: 0,
+              padding: "0px",
+              borderRadius: "0px",
+            }}
+          >
+            <CardContent>
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  label="First Name"
+                  name="firstName"
+                  value={formValues.firstName}
+                  onChange={handleChange}
+                  error={errors.firstName}
+                  helperText={errors.firstName && "First Name is required"}
+                  margin="normal"
+                />
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  label="Last Name"
+                  name="lastName"
+                  value={formValues.lastName}
+                  onChange={handleChange}
+                  error={errors.lastName}
+                  helperText={errors.lastName && "Last Name is required"}
+                  margin="normal"
+                />
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  label="Email"
+                  name="email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                  error={errors.email}
+                  helperText={errors.email && "A valid email is required"}
+                  margin="normal"
+                />
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  label="Message"
+                  name="message"
+                  multiline
+                  rows={4}
+                  value={formValues.message}
+                  onChange={handleChange}
+                  error={errors.message}
+                  helperText={errors.message && "Message is required"}
+                  margin="normal"
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{
+                    marginTop: "16px",
+                    padding: "12px",
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    fontWeight: "bold",
+                    borderRadius: "30px",
+                    textTransform: "none",
+                    "&:hover": {
+                      backgroundColor: "#333",
+                    },
+                  }}
+                >
+                  Submit
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 
-export default ScheduleCall;
+export default ScheduleACall;

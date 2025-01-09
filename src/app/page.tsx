@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import ServicesPage from "./components/services/page";
 import ProjectPage from "./components/projects/page";
 import WhyUs from "./components/WhyUs/page";
+import ScheduleACall from "./components/scheduleACall/page";
 
 function HomePage() {
   const countRef = useRef(null);
@@ -41,9 +42,9 @@ function HomePage() {
   return (
     <>
       <div
-        className="h-screen bg-cover bg-center flex items-center justify-center"
+        className="min-h-[75vh] bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: "url('/assets/images/logo/home-bg.jpg')",
+          backgroundImage: "url('/assets/images/logo/home2-bg.jpg')",
         }}
       >
         <div className="w-full h-full flex flex-col md:flex-row">
@@ -65,7 +66,7 @@ function HomePage() {
             </p>
             <Link
               href="/components/contact"
-              className="px-4 py-2 mt-10 bg-blue-50 bg-opacity-50 rounded-lg shadow-2xl hover:bg-slate-500 hover:bg-opacity-50 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+              className="px-4 py-2 mt-10 bg-blue-50 bg-opacity-80 text-black rounded-lg shadow-2xl hover:bg-slate-500 hover:text-white hover:bg-opacity-50 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
             >
               Schedule strategy call
             </Link>
@@ -117,6 +118,7 @@ function HomePage() {
         <ProjectPage viewType="Home"/>
         </div>
       </div>
+      <ScheduleACall/>
     </>
   );
 }

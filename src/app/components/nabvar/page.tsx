@@ -13,7 +13,7 @@ function Navbar() {
       href={href}
       className={`relative group ${
         path === href
-          ? "bg-[#4FC3F7] px-2 rounded-3xl text-black"
+          ? "bg-blue-500 px-2 rounded-3xl text-white"
           : "text-black px-2"
       }`}
       onClick={() => setPath(href)}
@@ -26,31 +26,31 @@ function Navbar() {
   );
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-blue-900 bg-opacity-80 backdrop-blur-sm text-white z-50">
+    <div className="fixed top-0 left-0 w-full bg-white bg-opacity-95 shadow-lg backdrop-blur-sm text-white z-50">
       <div className="lg:mx-20 mx-5">
         <div className="flex justify-between items-center sm:px-12 lg:px-20 h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/assets/images/logo/dexterzsol_logow.png"
+              src="/assets/images/logo/dexterzsol_logo.png"
               alt="Dexterz Sol Logo"
               width={1000}
               height={1000}
-              className="h-10 w-auto object-contain"
+              className="h-20 w-auto object-contain"
               priority
             />
           </div>
 
           {/* Menu Button (Medium & Small Screens) */}
           <button
-            className="md:block lg:hidden text-2xl text-white"
+            className="md:block lg:hidden text-2xl text-black"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             ☰
           </button>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex bg-white px-6 py-1 rounded-full items-center space-x-8 font-medium">
+          <div className="hidden lg:flex px-6 py-1 rounded-full items-center space-x-8 font-medium">
             <LinkWithHover href="/" label="Home" />
             <LinkWithHover href="/components/about" label="About" />
             <div
@@ -62,7 +62,7 @@ function Navbar() {
                 href={"/components/services"}
                 className={`relative group ${
                   path === "/components/services"
-                    ? "bg-[#4FC3F7] px-2 rounded-3xl text-black"
+                    ? "bg-blue-500 px-2 rounded-3xl text-white"
                     : "text-black px-2"
                 }`}
                 onClick={() => setPath("/components/services")}
@@ -152,7 +152,7 @@ function Navbar() {
           </div>
           <Link
             href={"/components/contact"}
-            className="hidden lg:block bg-[#4FC3F7] text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out"
+            className="hidden lg:block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out"
             onClick={() => setPath("/components/contact")}
           >
             Contact

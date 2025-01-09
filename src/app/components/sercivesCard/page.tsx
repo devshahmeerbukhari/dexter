@@ -21,7 +21,7 @@ const ServicesCard: React.FC<ServicesCardProp> = ({
 }) => {
   return (
     /*Made* Changes here of flex flex-col justify-around min-h-[500px]*/
-    <div className="flex flex-col justify-around border min-h-[500px] rounded-lg p-4">
+    <div className="flex flex-col bg-white justify-around border min-h-[500px] rounded-lg p-4">
       {/* Project Image */}
       {image?.asset ? (
         <div className="mt-4 w-full h-64 relative">
@@ -50,7 +50,7 @@ const ServicesCard: React.FC<ServicesCardProp> = ({
         <div className="mt-10">
           <a
             href={`/components/servicesDetails/${slug}`}
-            className="text-blue-500 hover:text-blue-700"
+            className="text-blue-700 hover:text-blue-800"
           >
             View Details
           </a>

@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image"; // Import the Image component from Next.js
 import Link from "next/link";
-import ScheduleCall from "../scheduleACall/page";
 
 const WhoWeAre = () => {
   return (
@@ -15,8 +14,8 @@ const WhoWeAre = () => {
             alt="Building"
             className="rounded-lg shadow-lg"
             width={500} // Set width
-            height={300} // Set height
-            style={{ width: "auto", height: "auto" }} // Maintain aspect ratio
+            height={500} // Set height
+            style={{ width: "auto", height: "700px" }} // Maintain aspect ratio
             priority
           />
         </div>
@@ -79,7 +78,6 @@ const WhoWeAre = () => {
           </Link>
         </div>
       </div>
-      <ScheduleCall/>
       {/* Define the animation in a style tag */}
       <style jsx>{`
         @keyframes fillProgress {
