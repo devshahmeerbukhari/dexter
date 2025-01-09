@@ -15,7 +15,7 @@ const WhoWeAre = () => {
             className="rounded-lg shadow-lg"
             width={500} // Set width
             height={500} // Set height
-            style={{ width: "auto", height: "700px" }} // Maintain aspect ratio
+            style={{ width: "auto", height: "auto" }} // Maintain aspect ratio
             priority
           />
         </div>

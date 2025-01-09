@@ -12,7 +12,7 @@ function WhyUs() {
           src="/assets/images/team.jpeg" // Replace with your image path
           alt="Office Environment"
           width={500}
-          height={300}
+          height={500}
           className="rounded-lg shadow-lg"
         />
       </div>

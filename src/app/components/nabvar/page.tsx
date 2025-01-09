@@ -30,7 +30,7 @@ function Navbar() {
       <div className="lg:mx-20 mx-5">
         <div className="flex justify-between items-center sm:px-12 lg:px-20 h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link href={"/"} className="flex items-center">
             <Image
               src="/assets/images/logo/dexterzsol_logo.png"
               alt="Dexterz Sol Logo"
@@ -39,7 +39,7 @@ function Navbar() {
               className="h-20 w-auto object-contain"
               priority
             />
-          </div>
+          </Link>
 
           {/* Menu Button (Medium & Small Screens) */}
           <button

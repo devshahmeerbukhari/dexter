@@ -107,7 +107,7 @@ function HomePage() {
       <WhyUs />
       <div className="bg-gray-100 rounded-lg pb-20 shadow-md">
         <div className="flex flex-col items-center justify-center pt-10 rounded-lg">
-          <h1 className="text-3xl font-bold mb-6">Explore Our Recent Projects</h1>
+          <h1 className="text-3xl font-bold mb-6 text-center">Explore Our Recent Projects</h1>
           <div className="w-3/4 text-center">
             <p className="text-lg mb-6">
               Crafting success through software, here’s what we’ve built so far.
