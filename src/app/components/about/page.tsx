@@ -6,8 +6,8 @@ import WhyChooseUs from "../whyChooseUs/page";
 function AboutPage() {
   return (
     <>
-      <div className="flex items-center justify-center min-h-[90vh] my-16 mx-auto px-4 w-full max-w-[85%]">
-        <div className="flex mt-20 flex-col md:flex-row items-center md:items-start gap-10 w-full">
+      <div className="flex items-center justify-center min-h-[90vh] mx-auto px-4 w-full max-w-[85%]">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-10 w-full">
           {/* Logo Section */}
           <div className="flex-shrink-0 w-full md:w-2/5">
             <Image

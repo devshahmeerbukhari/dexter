@@ -114,7 +114,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
   }, []);
 
   return (
-    <div className="min-w-[100vh]">
+    <div className="w-full">
       {viewType === "Home" ? (
         // Home view: Horizontal scrolling carousel
         <div className="relative max-w-screen-xl mx-auto px-4">
@@ -146,7 +146,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
           )}
         </div>
       ) : viewType === "Services" && services.length > 0 ? (
-        <div className="from-blue-100 mt-16 to-blue-50 bg-gradient-to-r min-h-[100vh] py-10">
+        <div className="from-blue-100 to-blue-50 bg-gradient-to-r min-h-[100vh] py-10">
           <div className="container mx-auto px-4">
             <h2 className="text-center text-4xl font-bold mb-10">
               Our services

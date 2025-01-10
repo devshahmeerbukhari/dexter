@@ -27,7 +27,7 @@ function Navbar() {
   );
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-white bg-opacity-95 shadow-lg backdrop-blur-sm text-white z-50">
+    <div className="w-full bg-white bg-opacity-95 shadow-lg backdrop-blur-sm text-white z-50">
       <div className="lg:mx-20 mx-5">
         <div className="flex justify-between items-center sm:px-12 lg:px-20 h-16">
           {/* Logo */}
