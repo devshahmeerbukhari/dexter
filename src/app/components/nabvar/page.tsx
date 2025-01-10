@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [path, setPath] = useState("/");
@@ -57,6 +58,7 @@ function Navbar() {
               className="relative"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
+              
             >
               <Link
                 href={"/components/services"}

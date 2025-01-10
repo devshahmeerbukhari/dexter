@@ -9,6 +9,7 @@ import ProjectPage from "./components/projects/page";
 import WhyUs from "./components/WhyUs/page";
 import ScheduleACall from "./components/scheduleACall/page";
 
+
 function HomePage() {
   const countRef = useRef(null);
 
@@ -101,13 +102,15 @@ function HomePage() {
               drive your success.
             </p>
           </div>
-          <ServicesPage viewType="Home"/>
+          <ServicesPage viewType="Home" />
         </div>
       </div>
       <WhyUs />
       <div className="bg-gray-100 rounded-lg pb-20 shadow-md">
         <div className="flex flex-col items-center justify-center pt-10 rounded-lg">
-          <h1 className="text-3xl font-bold mb-6 text-center">Explore Our Recent Projects</h1>
+          <h1 className="text-3xl font-bold mb-6 text-center">
+            Explore Our Recent Projects
+          </h1>
           <div className="w-3/4 text-center">
             <p className="text-lg mb-6">
               Crafting success through software, here’s what we’ve built so far.
@@ -115,10 +118,10 @@ function HomePage() {
           </div>
         </div>
         <div>
-        <ProjectPage viewType="Home"/>
+          <ProjectPage viewType="Home" />
         </div>
       </div>
-      <ScheduleACall/>
+      <ScheduleACall />
     </>
   );
 }

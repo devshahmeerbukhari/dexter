@@ -13,3 +13,18 @@
     --foreground: #ededed;
   }
 }
+
+.services-popup {
+  border: medium none;
+  border-radius: 0;
+  margin-top: -29px;
+  width: 100%;
+  padding: 3.125em 0;
+  left: 0;
+  top: 100%;
+  border-bottom: 1px solid #DDD;
+  transition: all 0.3s ease 0s;
+  transform: scale3d(1, 0, 1);
+  transform-origin: center top 0;
+  display: block;
+}
