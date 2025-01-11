@@ -5,7 +5,6 @@ import { VerifiedUser } from "@mui/icons-material";
 import WhoWeAre from "./components/whoWeAre/page";
 import { useEffect } from "react";
 import ServicesPage from "./components/services/page";
-import ProjectPage from "./components/projects/page";
 import WhyUs from "./components/WhyUs/page";
 import ScheduleACall from "./components/scheduleACall/page";
 
@@ -43,7 +42,7 @@ function HomePage() {
   return (
     <>
       <div
-        className="min-h-[75vh] bg-cover bg-center flex items-center justify-center"
+        className="relative z-40 min-h-[75vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: "url('/assets/images/logo/home2-bg.jpg')",
         }}
@@ -106,7 +105,7 @@ function HomePage() {
         </div>
       </div>
       <WhyUs />
-      <div className="bg-gray-100 rounded-lg pb-20 shadow-md">
+      {/* <div className="bg-gray-100 rounded-lg pb-20 shadow-md">
         <div className="flex flex-col items-center justify-center pt-10 rounded-lg">
           <h1 className="text-3xl font-bold mb-6 text-center">
             Explore Our Recent Projects
@@ -120,7 +119,7 @@ function HomePage() {
         <div>
           <ProjectPage viewType="Home" />
         </div>
-      </div>
+      </div> */}
       <ScheduleACall />
     </>
   );

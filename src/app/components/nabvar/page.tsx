@@ -3,6 +3,36 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const dropdownItems = [
+  {
+    label: "App Development",
+    href: "/components/servicesDetails/AppDevelopment",
+  },
+  {
+    label: "Generative AI",
+    href: "/components/servicesDetails/GenerativeAI",
+  },
+  {
+    label: "Web Development",
+    href: "/components/servicesDetails/WebDevelopment",
+  },
+  {
+    label: "Database Security",
+    href: "/components/servicesDetails/DatabaseSecurity",
+  },
+  {
+    label: "Blockchain Development",
+    href: "/components/servicesDetails/BlockchainDevelopment",
+  },
+  {
+    label: "UI/UX Design",
+    href: "/components/servicesDetails/UIUXDesign",
+  },
+  {
+    label: "Game Development",
+    href: "/components/servicesDetails/GameDevelopment",
+  },
+];
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +57,7 @@ function Navbar() {
   );
 
   return (
-    <div className="w-full bg-white bg-opacity-95 shadow-lg backdrop-blur-sm text-white z-50">
+    <div className="w-full bg-white bg-opacity-95 shadow-lg backdrop-blur-sm text-white relative z-50">
       <div className="lg:mx-20 mx-5">
         <div className="flex justify-between items-center sm:px-12 lg:px-20 h-16">
           {/* Logo */}
@@ -58,10 +88,9 @@ function Navbar() {
               className="relative"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
-              
             >
               <Link
-                href={"/components/services"}
+                href="/components/services"
                 className={`relative group ${
                   path === "/components/services"
                     ? "bg-blue-500 px-2 rounded-3xl text-white"
@@ -76,77 +105,20 @@ function Navbar() {
               </Link>
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute left-0 bg-blue-900 bg-opacity-95 text-white shadow-lg rounded-lg py-2 w-48 z-50">
-                  <Link
-                    href="/components/servicesDetails/AppDevelopment"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    App Development
-                  </Link>
-                  <Link
-                    href="/components/servicesDetails/GenerativeAI"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    Generative AI
-                  </Link>
-                  <Link
-                    href="/components/servicesDetails/WebDevelopment"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    Web Development
-                  </Link>
-                  <Link
-                    href="/components/servicesDetails/DatabaseSecurity"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    Database Security
-                  </Link>
-                  <Link
-                    href="/components/servicesDetails/BlockchainDevelopment"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    Blockchain Development
-                  </Link>
-                  <Link
-                    href="/components/servicesDetails/UIUXDesign"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    UI/UX Design
-                  </Link>
-                  <Link
-                    href="/components/servicesDetails/GameDevelopment"
-                    className="block px-4 py-2 hover:bg-blue-700"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setPath("/components/services");
-                    }}
-                  >
-                    GameDevelopment
-                  </Link>
+                <div className="absolute left-0 bg-blue-900 bg-opacity-95 text-white shadow-lg rounded-lg py-2 w-48 z-40">
+                  {dropdownItems.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      href={item.href}
+                      className="block px-4 py-2 hover:bg-blue-700 z-50"
+                      onClick={() => {
+                        setIsDropdownOpen(false);
+                        setPath("/components/services");
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -154,7 +126,7 @@ function Navbar() {
           </div>
           <Link
             href={"/components/contact"}
-            className="hidden lg:block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out"
+            className="hidden lg:block bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 py-2 px-4 rounded-lg"
             onClick={() => setPath("/components/contact")}
           >
             Contact

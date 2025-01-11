@@ -32,6 +32,21 @@ export type Service = {
 
 
 
+export type ServicesType = {
+  title: string;
+  slug: string;
+  tags: string[];
+  lottieImg: string;
+  url: string;
+  miniDetails: string;
+  benefits: {
+    icon: any,
+    heading: string,
+    details: string,
+  }[]
+}
+
+
 export type ServicesCardProp = {
   name: string;
   description: string;

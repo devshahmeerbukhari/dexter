@@ -1,120 +1,73 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { client } from "@/sanity/lib/client";
-import imageUrlBuilder from "@sanity/image-url";
-import { Service } from "../../../../../types/types";
-import { ImageSource } from "../../../../../types/types";
-import Image from "next/image";
+import { servicesArr } from "../../services/page";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { ServicesType } from "../../../../../types/types";
 
-// Create a builder instance for the Sanity client
-const builder = imageUrlBuilder(client);
+function Page() {
+  const [Slug, setSlug] = useState<string | null>(null);
+  const [Arr, setArr] = useState<ServicesType[]>(); // State to hold services data
 
-const ServicesDetails = () => {
-  const [project, setProject] = useState<Service | null>(null);
-  const [projects, setProjects] = useState<Service[]>([]);
-  const [slug, setSlug] = useState<string | null>(null);
-
-  const CACHE_KEY = "servicesDetailsCache";
-  const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
-
-  const pathname = usePathname(); // Get the current pathname (which includes the slug)
-
-  // Fetching the services and caching them
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Retrieve cached data
-        const cachedData = localStorage.getItem(CACHE_KEY);
-        const cache = cachedData ? JSON.parse(cachedData) : null;
-
-        if (cache && Date.now() - cache.timestamp < CACHE_DURATION) {
-          // Use cached data if it's still valid
-          setProjects(cache.data);
-          console.log("Using cached data");
-        } else {
-          // Fetch new data from the server
-          const data = await client.fetch(`*[_type == "servicesSchema"]`);
-          setProjects(data);
-
-          // Save fetched data to cache with a timestamp
-          localStorage.setItem(
-            CACHE_KEY,
-            JSON.stringify({ data, timestamp: Date.now() })
-          );
-          console.log("Fetched new data and updated cache");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // Extract slug from the pathname or search params
-  useEffect(() => {
+  const setServicesDataAndSlug = async () => {
+    await setArr(servicesArr);
     const slugFromPath = pathname?.split("/").pop();
-    setSlug(slugFromPath || null);
+    await setSlug(slugFromPath || null);
+  };
+
+  const pathname = usePathname(); // Get the current pathname
+  useEffect(() => {
+    setServicesDataAndSlug();
   }, [pathname]);
 
-  // Update the project state when 'slug' or 'projects' change
-  useEffect(() => {
-    if (slug && projects.length > 0) {
-      const dataFind = projects.find(
-        (data: Service) => data.slug.current === slug
-      );
-      setProject(dataFind || null); // Set the project or null if not found
-    }
-  }, [slug, projects]);
-
-  const urlFor = (source: ImageSource) =>
-    builder.image(source).width(800).url();
+  const currentService = Arr?.find((items) => items.slug === Slug); // Find the matching service
 
   return (
-    <div className="p-6 mt-20 lg:p-12 min-h-[80vh]">
-      <div className="container mx-auto bg-white rounded-lg shadow-lg p-6 lg:p-12">
-        {/* Responsive Layout */}
-        <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20">
-          {/* Text Content */}
-          <div className="flex-1 flex flex-col justify-center text-left">
-            <h1 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
-              {project?.name || "The cornerstone of a digital enterprise"}
-            </h1>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              {project?.description ||
-                "Gain a competitive edge in today’s fast-paced world of innovation, and meet business objectives effectively through advanced data platforms. We help businesses tackle issues related to data fragmentation, silos, scalability, and inefficient warehousing."}
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              {project?.detail ||
-                "With our data modernization solutions, organizations can unify, mobilize, govern, understand their data, and create a single source of truth."}
-            </p>
-          </div>
-  
-          {/* Image Content */}
-          <div className="flex-1 flex justify-center items-center">
-            {project?.image?.asset ? (
-              <div className="relative w-auto h-auto overflow-hidden rounded-lg shadow-lg">
-                <Image
-                  src={urlFor(project.image.asset)}
-                  alt={project?.name || "Service Image"}
-                  width={600}
-                  height={600}
-                  className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-110"
-                />
+    <>
+      {/* Service Header Section */}
+      <div className="flex flex-col lg:flex-row bg-white mx-4 lg:mx-20 min-h-[40vh] justify-center items-center gap-8 lg:gap-16 py-10">
+        <div className="flex flex-col text-center lg:text-left">
+          <h1 className="text-4xl lg:text-6xl font-bold">{currentService?.title}</h1>
+          <p className="mt-5 text-lg lg:text-2xl max-w-[550px] mx-auto lg:mx-0">
+            {currentService?.miniDetails}
+          </p>
+        </div>
+        <div className="max-w-7xl lg:w-1/3 flex justify-center">
+          <DotLottieReact
+            src={currentService?.lottieImg} // Provide a default fallback URL if needed
+            loop
+            autoplay
+            width={501}
+            height={501}
+          />
+        </div>
+      </div>
+
+      {/* Benefits Section */}
+      <div className="bg-gray-50 py-10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-center text-3xl lg:text-4xl font-bold mb-10">Key Benefits</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentService?.benefits?.map((benefit, idx) => (
+              <div
+                key={idx}
+                className="p-6 bg-white shadow-md rounded-lg flex flex-col items-center text-center"
+              >
+                {/* Benefit Icon */}
+                <div className="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-600 rounded-full text-4xl mb-4">
+                  {benefit.icon}
+                </div>
+                {/* Benefit Heading */}
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">{benefit.heading}</h3>
+                {/* Benefit Details */}
+                <p className="text-gray-600 text-sm lg:text-base">{benefit.details}</p>
               </div>
-            ) : (
-              <div className="bg-gray-200 rounded-lg shadow-lg w-full h-96 flex items-center justify-center">
-                <p className="text-gray-500">Image not available</p>
-              </div>
-            )}
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
-  
-  
-};
+}
 
-export default ServicesDetails;
+export default Page;

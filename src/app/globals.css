@@ -14,17 +14,45 @@
   }
 }
 
-.services-popup {
-  border: medium none;
-  border-radius: 0;
-  margin-top: -29px;
-  width: 100%;
-  padding: 3.125em 0;
-  left: 0;
-  top: 100%;
-  border-bottom: 1px solid #DDD;
-  transition: all 0.3s ease 0s;
-  transform: scale3d(1, 0, 1);
-  transform-origin: center top 0;
-  display: block;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-in-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-in-out;
 }
