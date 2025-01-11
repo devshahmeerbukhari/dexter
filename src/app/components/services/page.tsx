@@ -384,7 +384,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
                               ?.url  //  || "default-lottie-file-url" Provide a default fallback URL if needed
                           }
                         >
-                          Learn more
+                          See Details
                         </Link>
                       </button>
                     </div>
