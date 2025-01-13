@@ -36,33 +36,29 @@ function ProjectPage() {
 
   return (
     <div className="w-full py-28 from-blue-100 to-blue-50 bg-gradient-to-r min-h-screen flex justify-center items-center">
-      {/* Vertical Divider */}
-      <div className="fixed left-1/2 top-0 h-screen w-[2px] bg-gradient-to-r from-blue-500 to-cyan-400" />
+      {/* Vertical Divider - Hidden on smaller screens */}
+      <div className="hidden lg:block fixed left-1/2 top-0 h-screen w-[2px] bg-gradient-to-r from-blue-500 to-cyan-400" />
+
       <div className="w-full max-w-screen-xl px-6">
         {/* Page Title */}
         <div className="mb-28 relative z-10">
-          <h1 className="text-4xl items-start font-extrabold text-gray-800 mb-4">
+          <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
             Our Projects
           </h1>
-          <p className="text-lg text-gray-600 max-w-xl">
-            Explore some of our best projects showcasing innovation and
-            creativity.
+          <p className="text-lg text-gray-600 max-w-[24rem]">
+            Explore some of our best projects showcasing innovation and creativity.
           </p>
         </div>
         {projects.length > 0 ? (
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-16 md:gap-8 sm:gap-2">
             {projects.map((project: Project, index: number) => (
               <div
                 key={index}
-                className={`flex ${
-                  index % 2 === 0 ? "justify-start" : "justify-end"
-                }`}
+                className={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"} flex-col sm:flex-row`}
               >
                 <div
-                  className={`w-[45%] ${
-                    index % 2 === 0
-                      ? "animate-slideInLeft"
-                      : "animate-slideInRight"
+                  className={`max-w-[30vh] sm:w-[45%] ${
+                    index % 2 === 0 ? "animate-slideInLeft" : "animate-slideInRight lg:mr-20"
                   }`}
                 >
                   <ProjectCard

@@ -16,12 +16,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   slug,
 }) => {
   return (
-    <div className="relative w-full max-w-[500px] mx-auto">
+    <div className="relative w-full max-w-[100vh] mx-auto">
       {/* Card Background with Hover Scaling */}
       <div className="relative bg-gradient-to-br from-gray-100 via-white to-gray-50 rounded-2xl p-8 shadow-lg transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
         {/* Floating Image */}
         {image?.asset && (
-          <div className="absolute -top-14 -right-10 w-32 h-40 transform rotate-6 overflow-hidden transition-transform duration-500 hover:rotate-0">
+          <div className="lg:absolute relative rotate-0 top-0 right-0 lg:-top-20 lg:-right-20 w-32 h-40 transform lg:rotate-6 overflow-hidden transition-transform duration-500 hover:rotate-0">
             <img
               src={urlFor(image.asset)}
               alt={name}
@@ -32,10 +32,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Card Content */}
         <div className="z-10 text-left">
-          <h2 className="text-3xl font-bold text-gray-800 leading-snug mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-4">
             {name}
           </h2>
-          <p className="text-gray-600 text-base leading-relaxed mb-6">
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
             {description}
           </p>
           {/* Buttons */}
