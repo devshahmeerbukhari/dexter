@@ -331,7 +331,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
           spaceBetween={0} // Space between slides
           navigation // Enables navigation buttons
           pagination={{ clickable: true }} // Enables pagination
-          className="lg:w-[100vh] w-full" // Ensure Swiper takes full container width
+          className="w-full" // Ensure Swiper takes full container width
           autoplay={{ delay: 2000 }} // Autoplay with 2 seconds delay
           loop
           breakpoints={{
@@ -345,7 +345,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
             },
             // When screen width is >= 1024px (large screens, like desktops)
             1024: {
-              slidesPerView: 2, // 3 slides per view
+              slidesPerView: 4, // 3 slides per view
             },
           }}
         >
