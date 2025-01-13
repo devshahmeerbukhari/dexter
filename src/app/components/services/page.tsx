@@ -1,17 +1,21 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ServicesCard from "../sercivesCard/page";
 import { client } from "@/sanity/lib/client";
 import { Service } from "../../../../types/types";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Link from "next/link";
 import { ServicesType } from "../../../../types/types";
+import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper components
+import "swiper/css"; // Import Swiper styles
+import "swiper/css/navigation"; // Optional styles for navigation
+import "swiper/css/pagination"; // Optional styles for pagination
+import { Navigation, Pagination } from "swiper/modules"; // Import Swiper modules
+import { Autoplay } from "swiper/modules";
 
 interface ServicesPageProps {
   viewType: "Home" | "Services"; // Prop to determine the layout (Home or Services view)
 }
-
-
 
 export const servicesArr: ServicesType[] = [
   {
@@ -21,7 +25,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/61621bcf-2bca-443c-9a5d-0a955f562bf8/ad85gOTX4h.lottie",
     url: "/components/servicesDetails/AppDevelopment",
-    miniDetails: "Create custom, user-friendly mobile apps for iOS and Android that meet your specific business needs.",
+    miniDetails:
+      "Create custom, user-friendly mobile apps for iOS and Android that meet your specific business needs.",
     benefits: [
       {
         icon: "🚀",
@@ -56,7 +61,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/18c67767-e41a-477f-93cf-790920be4def/3qw6cOiCXq.lottie",
     url: "/components/servicesDetails/GenerativeAI",
-    miniDetails: "Harness AI-powered tools and machine learning to create innovative, cutting-edge solutions.",
+    miniDetails:
+      "Harness AI-powered tools and machine learning to create innovative, cutting-edge solutions.",
     benefits: [
       {
         icon: "🤖",
@@ -91,7 +97,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/21454b07-1152-4135-9d23-148900b7812b/uDxNM1EnZt.lottie",
     url: "/components/servicesDetails/WebDevelopment",
-    miniDetails: "Build responsive, fast-loading, and SEO-optimized websites tailored to your audience.",
+    miniDetails:
+      "Build responsive, fast-loading, and SEO-optimized websites tailored to your audience.",
     benefits: [
       {
         icon: "📐",
@@ -126,7 +133,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/0d1fcf45-e2cb-447d-ad2b-98c40c8a1fb9/sg9mYTAEsp.lottie",
     url: "/components/servicesDetails/DatabaseSecurity",
-    miniDetails: "Ensure secure database architecture with encryption and robust access control measures.",
+    miniDetails:
+      "Ensure secure database architecture with encryption and robust access control measures.",
     benefits: [
       {
         icon: "🔒",
@@ -161,7 +169,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/0bbca5ce-f628-4e5d-a730-29b4f8c0c8d0/eSsaAJGhLZ.lottie",
     url: "/components/servicesDetails/BlockchainDevelopment",
-    miniDetails: "Develop decentralized apps, smart contracts, and secure blockchain solutions.",
+    miniDetails:
+      "Develop decentralized apps, smart contracts, and secure blockchain solutions.",
     benefits: [
       {
         icon: "🔗",
@@ -188,7 +197,6 @@ export const servicesArr: ServicesType[] = [
           "Our blockchain architecture is designed to scale with your business. Whether you're handling thousands of transactions or expanding your user base, our solutions can seamlessly adapt to meet growing demands without compromising performance.",
       },
     ],
-
   },
   {
     title: "UI/UX Design",
@@ -197,7 +205,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/5ec4fda7-7e1b-4bd7-b811-85c9c6da83c2/5Eo8m30kcz.lottie",
     url: "/components/servicesDetails/UIUXDesign",
-    miniDetails: "Design an engaging product that is easy-to-use, attractive, and functional.",
+    miniDetails:
+      "Design an engaging product that is easy-to-use, attractive, and functional.",
     benefits: [
       {
         icon: "🎨",
@@ -232,7 +241,8 @@ export const servicesArr: ServicesType[] = [
     lottieImg:
       "https://lottie.host/d54fad76-4ee7-4210-9dbb-24d27764fb59/Am6ob0nDN0.lottie",
     url: "/components/servicesDetails/GameDevelopment",
-    miniDetails: "Create immersive, cross-platform games with advanced graphics and engaging gameplay.",
+    miniDetails:
+      "Create immersive, cross-platform games with advanced graphics and engaging gameplay.",
     benefits: [
       {
         icon: "🎮",
@@ -262,12 +272,9 @@ export const servicesArr: ServicesType[] = [
   },
 ];
 
-
 function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
   const [services, setServices] = useState<Service[]>([]); // State to store the list of services
-  const carouselRef = useRef<HTMLDivElement>(null); // Ref for the horizontal scrolling carousel
-
-  
+  // const carouselRef = useRef<HTMLDivElement>(null); // Ref for the horizontal scrolling carousel
 
   // Cache settings
   const CACHE_KEY = "servicesCache"; // Key to store/retrieve data in localStorage
@@ -286,7 +293,9 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
           // Otherwise, fetch fresh data from the Sanity API
           const data = await client.fetch(`*[_type == "servicesSchema"]`);
           const enrichedServices = data.map((service: Service) => {
-            const match = servicesArr.find((item) => item.title === service.name); // Match by name
+            const match = servicesArr.find(
+              (item) => item.title === service.name
+            ); // Match by name
             return {
               ...service,
               tags: match ? match.tags : [],
@@ -309,38 +318,54 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
     fetchData();
   }, []);
 
+  // const isMdScreen = useMediaQuery((theme: Theme) =>
+  //   theme.breakpoints.down("lg")
+  // );
+
   return (
     <div className="w-full">
       {viewType === "Home" ? (
         // Home view: Horizontal scrolling carousel
-        <div className="relative max-w-screen-xl mx-auto px-4">
-          {services.length > 0 ? (
-            <div
-              ref={carouselRef} // Reference to the carousel container
-              className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide"
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]} // Use required Swiper modules
+          spaceBetween={0} // Space between slides
+          navigation // Enables navigation buttons
+          pagination={{ clickable: true }} // Enables pagination
+          className="lg:w-[100vh] w-full" // Ensure Swiper takes full container width
+          autoplay={{ delay: 2000 }} // Autoplay with 2 seconds delay
+          loop
+          breakpoints={{
+            // When screen width is >= 640px (small screens, like mobile)
+            640: {
+              slidesPerView: 1, // 1 slide per view
+            },
+            // When screen width is >= 768px (medium screens, like tablets)
+            768: {
+              slidesPerView: 2, // 2 slides per view
+            },
+            // When screen width is >= 1024px (large screens, like desktops)
+            1024: {
+              slidesPerView: 2, // 3 slides per view
+            },
+          }}
+        >
+          {/* Map through the services and render each one as a SwiperSlide */}
+          {services.map((service: Service, index: number) => (
+            <SwiperSlide
+              key={index}
+              className="flex-shrink-0" // Prevent slide from shrinking
             >
-              {/* Map through the services and render each one as a card */}
-              {services.map((service: Service, index: number) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[300px] h-auto p-4 rounded-lg"
-                >
-                  <ServicesCard
-                    name={service.name} // Service name
-                    description={service.description} // Service description
-                    image={service.image} // Service image
-                    slug={service.slug?.current} // Slug for navigation
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            // Display loading indicator while data is being fetched
-            <div className="flex items-center justify-center w-full text-xl font-bold text-blue-500">
-              Loading...
-            </div>
-          )}
-        </div>
+              <div className="w-[300px] h-auto m-4 mx-20 pb-20 rounded-lg">
+                <ServicesCard
+                  name={service.name} // Service name
+                  description={service.description} // Service description
+                  image={service.image} // Service image
+                  slug={service.slug?.current} // Slug for navigation
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       ) : viewType === "Services" && services.length > 0 ? (
         <div className="from-blue-100 to-blue-50 bg-gradient-to-r min-h-[100vh] py-10">
           <div className="container mx-auto px-4">
@@ -375,13 +400,16 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
                     </div>
                     <div className="flex gap-4">
                       <button className="bg-black text-white px-4 py-2 rounded">
-                        <Link href={"/components/contact"}>Let&apos;s chat</Link>
+                        <Link href={"/components/contact"}>
+                          Let&apos;s chat
+                        </Link>
                       </button>
                       <button className="bg-gray-200 text-black px-4 py-2 rounded">
                         <Link
                           href={
-                            servicesArr.find((item) => item.title === service.name)
-                              ?.url  //  || "default-lottie-file-url" Provide a default fallback URL if needed
+                            servicesArr.find(
+                              (item) => item.title === service.name
+                            )?.url //  || "default-lottie-file-url" Provide a default fallback URL if needed
                           }
                         >
                           See Details
@@ -395,7 +423,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
                     <DotLottieReact
                       src={
                         servicesArr.find((item) => item.title === service.name)
-                          ?.lottieImg  //  || "default-lottie-file-url" Provide a default fallback URL if needed
+                          ?.lottieImg //  || "default-lottie-file-url" Provide a default fallback URL if needed
                       }
                       loop
                       autoplay

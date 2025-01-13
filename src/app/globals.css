@@ -56,3 +56,24 @@
 .animate-slideInRight {
   animation: slideInRight 0.8s ease-in-out;
 }
+
+
+
+/* Swiper Custom Styles */
+.swiper-pagination {
+  margin-top: 20px; /* Space between pagination dots and cards */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 50%; /* Vertically center the arrows */
+  transform: translateY(-50%);
+}
+
+.swiper-button-next {
+  right: -30px; /* Add space to the right */
+}
+
+.swiper-button-prev {
+  left: -30px; /* Add space to the left */
+}
