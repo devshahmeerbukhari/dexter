@@ -128,6 +128,11 @@ const ScheduleACall = () => {
                   error={errors.firstName}
                   helperText={errors.firstName && "First Name is required"}
                   margin="normal"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "15px",
+                    },
+                  }}
                 />
                 <TextField
                   fullWidth
@@ -139,6 +144,11 @@ const ScheduleACall = () => {
                   error={errors.lastName}
                   helperText={errors.lastName && "Last Name is required"}
                   margin="normal"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "15px",
+                    },
+                  }}
                 />
                 <TextField
                   fullWidth
@@ -150,6 +160,11 @@ const ScheduleACall = () => {
                   error={errors.email}
                   helperText={errors.email && "A valid email is required"}
                   margin="normal"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "15px",
+                    },
+                  }}
                 />
                 <TextField
                   fullWidth
@@ -163,6 +178,11 @@ const ScheduleACall = () => {
                   error={errors.message}
                   helperText={errors.message && "Message is required"}
                   margin="normal"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "15px",
+                    },
+                  }}
                 />
                 <Button
                   type="submit"

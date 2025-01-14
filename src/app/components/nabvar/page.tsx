@@ -114,12 +114,12 @@ function Navbar() {
               </Link>
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute left-0 bg-blue-900 bg-opacity-95 text-white shadow-lg rounded-lg py-2 w-48 z-40">
+                <div className="absolute left-0 bg-blue-50 bg-opacity-95 text-black shadow-lg rounded-lg py-2 w-48 z-40">
                   {dropdownItems.map((item, idx) => (
                     <Link
                       key={idx}
                       href={item.href}
-                      className="block px-4 py-2 hover:bg-blue-700 z-50"
+                      className="block px-4 py-2 hover:bg-white z-50"
                       onClick={() => {
                         setIsDropdownOpen(false);
                         // setPath("/components/services");
