@@ -35,7 +35,7 @@ function ProjectPage() {
   }, []);
 
   return (
-    <div className="w-full py-28 from-blue-200 to-blue-100 bg-gradient-to-r min-h-screen flex justify-center items-center">
+    <div className="w-full py-28 from-blue-100 to-blue-50 bg-gradient-to-r min-h-screen flex justify-center items-center">
       {/* Vertical Divider - Hidden on smaller screens */}
       <div className="hidden lg:block fixed left-1/2 top-0 h-screen w-[2px] bg-gradient-to-r from-blue-500 to-cyan-400" />
 
