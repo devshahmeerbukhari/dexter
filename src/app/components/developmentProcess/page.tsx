@@ -7,9 +7,9 @@ const DevelopmentProcess = () => {
         <h4 className="text-blue-600 font-medium uppercase">Working Process</h4>
         <h2 className="text-3xl font-bold">Our Development Process</h2>
       </div>
-      <div className="flex justify-center items-start gap-8 px-6">
+      <div className="flex flex-col md:flex-row justify-center items-start md:gap-8 px-6">
         {/* Step 1 */}
-        <div className="text-center">
+        <div className="text-center mb-8 md:mb-0 md:flex-1">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
               <span className="text-xl text-blue-600 font-bold">1</span>
@@ -24,7 +24,7 @@ const DevelopmentProcess = () => {
         </div>
 
         {/* Step 2 */}
-        <div className="text-center">
+        <div className="text-center mb-8 md:mb-0 md:flex-1">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
               <span className="text-xl text-blue-600 font-bold">2</span>
@@ -39,7 +39,7 @@ const DevelopmentProcess = () => {
         </div>
 
         {/* Step 3 */}
-        <div className="text-center">
+        <div className="text-center md:flex-1">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
               <span className="text-xl text-blue-600 font-bold">3</span>

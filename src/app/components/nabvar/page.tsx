@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const dropdownItems = [
   {
@@ -36,18 +37,26 @@ const dropdownItems = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [path, setPath] = useState("/");
+  // const [path, setPath] = useState("");
+  const pathmame = usePathname()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // console.log(pathmame)
+
+  // useEffect(() => {
+  //   // Set path based on current URL
+  //   setPath(window.location.pathname);
+  // }, []);
 
   const LinkWithHover = ({ href, label }) => (
     <Link
       href={href}
       className={`relative group ${
-        path === href
+        pathmame === href
           ? "bg-blue-500 px-2 rounded-3xl text-white"
           : "text-black px-2"
       }`}
-      onClick={() => setPath(href)}
+      // onClick={() => setPath(href)}
     >
       <span className="relative inline-block">
         {label}
@@ -92,11 +101,11 @@ function Navbar() {
               <Link
                 href="/components/services"
                 className={`relative group ${
-                  path === "/components/services"
+                  pathmame.includes("/components/services")
                     ? "bg-blue-500 px-2 rounded-3xl text-white"
                     : "text-black px-2"
                 }`}
-                onClick={() => setPath("/components/services")}
+                // onClick={() => setPath("/components/services")}
               >
                 <span className="relative inline-block">
                   Services
@@ -113,7 +122,7 @@ function Navbar() {
                       className="block px-4 py-2 hover:bg-blue-700 z-50"
                       onClick={() => {
                         setIsDropdownOpen(false);
-                        setPath("/components/services");
+                        // setPath("/components/services");
                       }}
                     >
                       {item.label}
@@ -127,7 +136,7 @@ function Navbar() {
           <Link
             href={"/components/contact"}
             className="hidden lg:block bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 py-2 px-4 rounded-lg"
-            onClick={() => setPath("/components/contact")}
+            // onClick={() => setPath("/components/contact")}
           >
             Contact
           </Link>
