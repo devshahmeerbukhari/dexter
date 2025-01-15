@@ -38,7 +38,7 @@ const dropdownItems = [
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [path, setPath] = useState("");
-  const pathmame = usePathname()
+  const pathmame = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // console.log(pathmame)
@@ -149,43 +149,43 @@ function Navbar() {
           isMenuOpen
             ? "max-h-[300px] opacity-100 translate-y-0"
             : "max-h-0 opacity-0 -translate-y-4"
-        } overflow-hidden bg-blue-900 bg-opacity-90`}
+        } overflow-hidden bg-gradient-to-r from-[#6868dd] to-[#69afff] text-white shadow-lg rounded-md`}
       >
-        <div className="flex flex-col items-center space-y-4 py-4">
+        <div className="flex flex-col items-center space-y-4 py-4 text-white">
           <Link
             href="/"
-            className="hover:text-blue-300"
+            className="flex items-center gap-2 px-4 py-2 hover:bg-blue-600 hover:bg-opacity-75 rounded-md transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
-            Home
+            <i className="fas fa-home"></i> Home
           </Link>
           <Link
             href="/components/about"
-            className="hover:text-blue-300"
+            className="flex items-center gap-2 px-4 py-2 hover:bg-blue-600 hover:bg-opacity-75 rounded-md transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
-            About
+            <i className="fas fa-info-circle"></i> About
           </Link>
           <Link
             href="/components/services"
-            className="hover:text-blue-300"
+            className="flex items-center gap-2 px-4 py-2 hover:bg-blue-600 hover:bg-opacity-75 rounded-md transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
-            Services
+            <i className="fas fa-concierge-bell"></i> Services
           </Link>
           <Link
             href="/components/projects"
-            className="hover:text-blue-300"
+            className="flex items-center gap-2 px-4 py-2 hover:bg-blue-600 hover:bg-opacity-75 rounded-md transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
-            Projects
+            <i className="fas fa-briefcase"></i> Projects
           </Link>
           <Link
             href="/components/contact"
-            className="hover:text-blue-300"
+            className="flex items-center gap-2 px-4 py-2 hover:bg-blue-600 hover:bg-opacity-75 rounded-md transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact
+            <i className="fas fa-envelope"></i> Contact
           </Link>
         </div>
       </div>

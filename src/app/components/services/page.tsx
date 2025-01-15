@@ -12,6 +12,9 @@ import "swiper/css/navigation"; // Optional styles for navigation
 import "swiper/css/pagination"; // Optional styles for pagination
 import { Navigation, Pagination } from "swiper/modules"; // Import Swiper modules
 import { Autoplay } from "swiper/modules";
+import {useMediaQuery, useMediaQueries} from '@react-hook/media-query'
+
+
 
 interface ServicesPageProps {
   viewType: "Home" | "Services"; // Prop to determine the layout (Home or Services view)
@@ -357,11 +360,17 @@ export const servicesArr: ServicesType[] = [
 ];
 
 function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
+
+  // Using a single media query
+  const matches = useMediaQuery('only screen and (max-width: 768px)')
+  //console.log("MMM: ",matches)
+
   const [services, setServices] = useState<Service[]>([]); // State to store the list of services
 
   const CACHE_KEY = "servicesCache"; // Key to store/retrieve data in localStorage
   const CACHE_DURATION = 5 * 60 * 1000; // Cache duration (5 minutes in milliseconds)
 
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -406,21 +415,25 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
         <Swiper
           modules={[Navigation, Pagination, Autoplay]} // Use required Swiper modules
           spaceBetween={0} // Space between slides
-          navigation // Enables navigation buttons
+          navigation = {!matches} // Enables navigation buttons
+          
           pagination={{ clickable: true }} // Enables pagination
-          className="w-full"
+          className="w-[100%]"
+          style={{
+            paddingInline:matches?0:"25px"
+          }}
           autoplay={{ delay: 2000 }} // Autoplay with 2 seconds delay
           loop
           breakpoints={{
             640: { slidesPerView: 1 }, // Small screens
             768: { slidesPerView: 2 }, // Medium screens
             1024: { slidesPerView: 3 }, // Large screens
-            1440: { slidesPerView: 5 },
+            1440: { slidesPerView: 4 },
           }}
         >
           {services.map((service: Service, index: number) => (
-            <SwiperSlide key={index} className="flex-shrink-0">
-              <div className="w-[90%] min-w-[300px] mb-10 h-auto m-auto pb-6">
+            <SwiperSlide key={index} >
+              <div className={`px-0 md:px-0 lg:px xl:p w-[90%] min-w-[300px] mb-10 h-auto m-auto pb-6`}>
                 <ServicesCard
                   name={service.name}
                   description={service.description}
