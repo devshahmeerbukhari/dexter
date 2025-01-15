@@ -415,7 +415,7 @@ function ServicesPage({ viewType = "Services" }: ServicesPageProps) {
         <Swiper
           modules={[Navigation, Pagination, Autoplay]} // Use required Swiper modules
           spaceBetween={0} // Space between slides
-          navigation = {!matches} // Enables navigation buttons
+          //navigation = {!matches} // Enables navigation buttons
           
           pagination={{ clickable: true }} // Enables pagination
           className="w-[100%]"

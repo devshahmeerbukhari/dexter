@@ -83,16 +83,10 @@ function Page() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6 mr-3"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 10h11M9 21V3m-6 9h11m-6 9V3"
-            />
+            <path d="M18 10c0 3.866-3.582 7-8 7a8.767 8.767 0 01-3.536-.728L2 17l1.5-3.872A8.091 8.091 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" />
           </svg>
           Get in Touch
         </Link>
