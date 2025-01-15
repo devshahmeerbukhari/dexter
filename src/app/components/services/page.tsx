@@ -12,7 +12,7 @@ import "swiper/css/navigation"; // Optional styles for navigation
 import "swiper/css/pagination"; // Optional styles for pagination
 import { Navigation, Pagination } from "swiper/modules"; // Import Swiper modules
 import { Autoplay } from "swiper/modules";
-import {useMediaQuery, useMediaQueries} from '@react-hook/media-query'
+import {useMediaQuery} from '@react-hook/media-query'
 
 
 
